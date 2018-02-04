@@ -3,7 +3,7 @@ package application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// Java側に起動クラスがある場合、scanBasePackagesを定義してあげないとcomponent scanしてくれないっぽい
+// Java側に起動クラスがある場合、scanBasePackagesを定義してあげないとkotlin側のcomponent scanしてくれないっぽい??
 @SpringBootApplication(scanBasePackages = {"application"})
 public class KotlinOnSpringApplication {
 
