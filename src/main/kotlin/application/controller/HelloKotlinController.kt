@@ -1,6 +1,8 @@
 package application.controller
 
+import application.domain.Book
 import application.entity.GreetingKotlin
+import application.service.BookService
 import application.service.http.HyperHttpClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 // https://stackoverflow.com/questions/35479631/how-to-use-spring-annotations-like-autowired-in-kotlin
 // kotlinでField injectionしようとするとlateinit varで定義する必要があり、イケてない
 class HelloKotlinController @Autowired constructor(
-    val httpClient: HyperHttpClient
+    val httpClient: HyperHttpClient,
+    val bookService: BookService
 ) {
 
     @GetMapping("/hello/kotlin")
@@ -24,4 +27,7 @@ class HelloKotlinController @Autowired constructor(
 
     @GetMapping("/http/kotlin")
     fun httpKotlin(): String = httpClient.hello("kotlin")
+
+    @GetMapping("/books")
+    fun books(): List<Book> = bookService.findAll()
 }

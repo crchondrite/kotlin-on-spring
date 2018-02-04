@@ -13,7 +13,6 @@ public class HyperHttpClient {
     private HttpClient httpClient;
 
     private HyperHttpClient() {
-        System.out.println("HyperHttpClient Created!!");
         httpClient = HttpClientMaker.getHttpClient();
     }
 
